@@ -23,9 +23,9 @@
    or -> py -m pytest [test_login_page.py] 
 
 # P.S. The project was developed on the following versions:
-OS -> Windows 3.11
-Python version -> 3.12
-pip version -> 24.1.1
-pytest version -> 8.2.2
-selenium version -> 4.22.0
-platform win32
+OS -> Windows 3.11; 
+Python version -> 3.12; 
+pip version -> 24.1.1; 
+pytest version -> 8.2.2; 
+selenium version -> 4.22.0; 
+platform win32; 
