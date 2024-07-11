@@ -21,14 +21,22 @@
 
 ## If you want to run the project from the PyCharm IDE terminal, run the following commands in the terminal:
 
-1. Open a terminal in PyCharm IDE
-2. Create a virtual environment. Command to create a virtual environment
+1. Copy the HTTPS address of the repository
+2. Open a terminal in PyCharm IDE
+3. Run the following command in terminal
+> git clone https://github.com/DanikaVeresha/Hillel_Test_Project_PyTest_Selenium.git
+4. Create a virtual environment. Command to create a virtual environment
 > py -m venv <virtual_environment_name>
-3. Activate the virtual environment using the following command
+5. Activate your virtual environment using the command in the terminal
 > <virtual_environment_name>\Scripts\activate
-4. Enter the command
+5. Install the following dependencies by running the command in terminal
+> pip install pytest, selenium
+6. Go to the project root directory
+7. Install the setup.py file with the command
+> pip install -e .
+8. Enter the command
 > pytest
-5. or -> 
+9. or -> 
 > py -m pytest [test_login_page.py]
 
 ### P.S. This project was developed on:
