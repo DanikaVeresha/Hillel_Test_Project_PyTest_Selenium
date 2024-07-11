@@ -7,7 +7,7 @@ from setuptools import setup
 
 setup(
     name='WebTesting',
-    version='0.1',
+    version='0.0.1',
     packages=['Web_tests'],
     install_requires=[
         'selenium',
@@ -15,3 +15,4 @@ setup(
         'webdriver_manager',
         ],
 )
+

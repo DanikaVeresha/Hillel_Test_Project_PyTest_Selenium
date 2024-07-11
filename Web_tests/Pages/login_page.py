@@ -1,3 +1,7 @@
+"""
+This module contains the class LoginPage for the login page.
+"""
+
 from selenium.webdriver.common.by import By
 from Web_tests.Pages.base_page import BasePage
 
@@ -8,13 +12,11 @@ class LoginPage(BasePage):
 
     USERNAME_FIELD = (By.NAME, 'username')
     PASSWORD_FIELD = (By.NAME, 'password')
-    LOGIN_BUTTON = (By.XPATH, '//*[@id="app"]/div[1]/div/div[1]/div/div[2]/div[2]/form/div[3]/button')
-    TITLE_LOGIN_PAGE = (By.XPATH, '//*[@id="app"]/div[1]/div/div[1]/div/div[2]/h5')
+    LOGIN_BUTTON = (By.TAG_NAME, 'button')
+    TITLE_LOGIN_PAGE = (By.TAG_NAME, 'h5')
+    ERROR_MESSAGE_INVALID_CREDENTIALS = (By.TAG_NAME, 'p')
 
-    ERROR_MESSAGE_INVALID_CREDENTIALS = (By.XPATH,
-                                         '//*[@id="app"]/div[1]/div/div[1]/div/div[2]/div[2]/div/div[1]/div[1]/p')
-
-    # Find the elements ->
+# Find the elements ->
     @property
     def username_field(self):
         return self.find_element(LoginPage.USERNAME_FIELD)
@@ -32,15 +34,17 @@ class LoginPage(BasePage):
         return self.find_element(LoginPage.TITLE_LOGIN_PAGE)
 
     @property
-    def error_message_invalid_credentials(self):
+    def error_message(self):
         return self.find_element(LoginPage.ERROR_MESSAGE_INVALID_CREDENTIALS)
 
-    # Open the page ->
-    def login_page(self):
-        self.driver.get('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
+
+# Open the page ->
+    def go_to_login_page(self, domain):
+        self.driver.get("".join([domain, 'web/index.php/auth/login']))
         return self
 
-    # Check if the elements are displayed ->
+
+# Check if the elements are displayed ->
     def is_displayed_username_field(self):
         return self.username_field.is_displayed()
 
@@ -53,28 +57,31 @@ class LoginPage(BasePage):
     def is_displayed_title_login_page(self):
         return self.title_login_page.is_displayed()
 
-    def is_displayed_error_message_invalid_credentials(self):
-        return self.error_message_invalid_credentials.is_displayed()
-
     def is_displayed_objects(self):
-        self.is_displayed_title_login_page()
         self.is_displayed_username_field()
         self.is_displayed_password_field()
         self.is_displayed_login_button()
-
-    # Clear the fields ->
-    def clier_username_field(self):
-        return self.username_field.clear()
-
-    def clier_password_field(self):
-        return self.password_field.clear()
-
-    def clier_fields(self):
-        self.clier_username_field()
-        self.clier_password_field()
+        self.is_displayed_title_login_page()
         return self
 
-    # Enter the user data and click the button ->
+    def is_displayed_error_message(self):
+        return self.error_message.is_displayed()
+
+
+# Clear the fields ->
+    def clear_username_field(self):
+        return self.username_field.clear()
+
+    def clear_password_field(self):
+        return self.password_field.clear()
+
+    def clear_fields(self):
+        self.clear_username_field()
+        self.clear_password_field()
+        return self
+
+
+# Enter the user data and click the button ->
     def enter_username(self, user):
         self.username_field.send_keys(user.username)
         return self
@@ -91,12 +98,7 @@ class LoginPage(BasePage):
         self.enter_password(user)
         self.click_login_button()
 
-    def get_error_message_invalid_credentials(self, user):
-        self.enter_username(user)
-        self.enter_password(user)
-        self.click_login_button()
-        self.is_displayed_error_message_invalid_credentials()
-        return self.error_message_invalid_credentials.text
+
 
 
 

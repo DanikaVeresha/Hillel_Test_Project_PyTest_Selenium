@@ -1,19 +1,22 @@
 """
-Open browser and close it after test
+File with fixtures for tests
 """
 
 import pytest
 
 from selenium.webdriver import Chrome
-from Web_tests.Helpers.url_base_page import URLPages as url
-from Web_tests.Helpers.user_data import UserData as user
-from Web_tests.Helpers.error_message import ErrorMessage as error
+from Web_tests.Helpers.user_data import UserData
 from Web_tests.Pages.login_page import LoginPage
 from Web_tests.Pages.user_account_page import AccountPage
 
 
 # TODO: Specify path to chromedriver there
-service_path = '/usr/local/bin/chromedriver'
+service_path = '<your_path_to_chromedriver_on_your_device'
+
+
+@pytest.fixture()
+def domain_part():
+    return 'https://opensource-demo.orangehrmlive.com/'
 
 
 @pytest.fixture()
@@ -23,38 +26,30 @@ def driver():
     driver.quit()
 
 
-@pytest.fixture()
-def url_base_page():
-    return url('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
-
-
-@pytest.fixture()
-def url_account_page():
-    return url('https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index')
-
-
 @pytest.fixture(scope='session')
 def valid_user():
-    return user('Admin', 'admin123')
+    return UserData('Admin', 'admin123')
 
 
 @pytest.fixture(scope='session')
 def invalid_user():
-    return user(' Admin', 'ADMIN123')
+    return UserData(' Admin', 'ADMIN123')
 
 
 @pytest.fixture()
-def login_page(driver):
-    return LoginPage(driver).login_page()
+def login_page(driver, domain_part):
+    return LoginPage(driver).go_to_login_page(domain_part)
 
 
 @pytest.fixture()
-def account_page(driver):
-    return AccountPage(driver).account_page()
+def account_page(driver, domain_part):
+    return AccountPage(driver).go_to_account_page(domain_part)
 
 
-@pytest.fixture(scope='session')
+@pytest.fixture()
 def error_message():
-    return error('Invalid credentials')
+    return 'Invalid credentials'
+
+
 
 

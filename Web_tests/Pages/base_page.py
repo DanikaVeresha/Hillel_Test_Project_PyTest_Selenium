@@ -17,3 +17,4 @@ class BasePage:
     def refresh_page(self):
         self.driver.refresh()
         return self
+
