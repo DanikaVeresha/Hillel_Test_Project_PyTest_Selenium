@@ -28,7 +28,7 @@
 > <virtual_environment_name>\Scripts\activate
 4. Enter the command
 > pytest
-or: 
+5. or -> 
 > >py -m pytest [test_login_page.py]
 
 ### P.S. This project was developed on:
