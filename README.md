@@ -19,7 +19,7 @@
 9. Open the Python file __“test_login_page.py”__
 10. Run the file for execution by clicking the __“Run”__ button.
 
-## If you want to run the project from the PyCharm IDE terminal, run the following commands in the terminal:
+## If you want to run the project from the PyCharm IDE terminal, follow these steps::
 
 1. Copy the HTTPS address of the repository
 2. Open a terminal in PyCharm IDE
