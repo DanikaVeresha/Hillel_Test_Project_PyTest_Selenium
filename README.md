@@ -5,7 +5,7 @@
 1. Copy the HTTPS address of the repository
 2. Open a terminal in PyCharm IDE
 3. Run the following command in terminal
-> clone git https://github.com/DanikaVeresha/Hillel_Test_Project_PyTest_Selenium.git
+> git clone https://github.com/DanikaVeresha/Hillel_Test_Project_PyTest_Selenium.git
 4. Create a virtual environment. Command to create a virtual environment
 > py -m venv <virtual_environment_name>
 5. Activate your virtual environment using the command in the terminal
@@ -29,7 +29,7 @@
 4. Enter the command
 > pytest
 5. or -> 
-> >py -m pytest [test_login_page.py]
+> py -m pytest [test_login_page.py]
 
 ### P.S. This project was developed on:
 OS -> Windows 3.11;
