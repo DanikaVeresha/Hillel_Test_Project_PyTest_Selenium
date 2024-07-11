@@ -13,7 +13,7 @@
 5. Install the following dependencies by running the command in terminal
 > pip install pytest, selenium
 6. Go to the project root directory
-7. Run the setup.py file with the command
+7. Install the setup.py file with the command
 > pip install -e .
 8. From the root directory, go to the __"Tests"__ directory
 9. Open the Python file __“test_login_page.py”__
