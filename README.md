@@ -32,9 +32,9 @@
 > py -m pytest [test_login_page.py]
 
 ### P.S. This project was developed on:
-OS -> Windows 3.11;
-Python version -> 3.12;
-pip version -> 24.1.1;
-pytest version -> 8.2.2;
-selenium version -> 4.22.0;
-Win32 platform;
+##### OS -> Windows 3.11;
+##### Python version -> 3.12;
+##### pip version -> 24.1.1;
+##### pytest version -> 8.2.2;
+##### selenium version -> 4.22.0;
+##### Win32 platform;
