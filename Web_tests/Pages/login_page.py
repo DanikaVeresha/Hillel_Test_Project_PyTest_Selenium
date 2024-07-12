@@ -1,7 +1,7 @@
 """
 This module contains the class LoginPage for the login page.
 """
-
+from urllib.parse import urljoin
 from selenium.webdriver.common.by import By
 from Web_tests.Pages.base_page import BasePage
 
@@ -40,7 +40,7 @@ class LoginPage(BasePage):
 
 # Open the page ->
     def go_to_login_page(self, domain):
-        self.driver.get("".join([domain, 'web/index.php/auth/login']))
+        self.driver.get(urljoin(domain, 'web/index.php/auth/login'))
         return self
 
 
@@ -54,15 +54,14 @@ class LoginPage(BasePage):
     def is_displayed_login_button(self):
         return self.login_button.is_displayed()
 
-    def is_displayed_title_login_page(self):
-        return self.title_login_page.is_displayed()
-
     def is_displayed_objects(self):
         self.is_displayed_username_field()
         self.is_displayed_password_field()
         self.is_displayed_login_button()
-        self.is_displayed_title_login_page()
         return self
+
+    def is_displayed_title_login_page(self):
+        return self.title_login_page.is_displayed()
 
     def is_displayed_error_message(self):
         return self.error_message.is_displayed()

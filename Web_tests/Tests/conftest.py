@@ -10,10 +10,6 @@ from Web_tests.Pages.login_page import LoginPage
 from Web_tests.Pages.user_account_page import AccountPage
 
 
-# TODO: Specify path to chromedriver there
-service_path = '<your_path_to_chromedriver_on_your_device'
-
-
 @pytest.fixture()
 def domain_part():
     return 'https://opensource-demo.orangehrmlive.com/'
