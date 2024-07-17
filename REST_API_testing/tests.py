@@ -72,6 +72,16 @@ class TestCreatePost:
         assert response_userdata.json()['gender'] == self.USERDATA['gender']
         assert response_userdata.json()['status'] == self.USERDATA['status']
 
+    def test_type_of_user_data(self):
+        response_user_data = requests.get(
+            f'{self.URL_CREATE_USER}/{self.return_user_id()}',
+            headers=self.HEADERS
+        )
+        assert isinstance(response_user_data.json()['name'], str)
+        assert isinstance(response_user_data.json()['email'], str)
+        assert isinstance(response_user_data.json()['gender'], str)
+        assert isinstance(response_user_data.json()['status'], str)
+
     def test_create_post(self):
         response_post = requests.post(
             f'{self.URL_CREATE_USER}/{self.return_user_id()}/posts',
@@ -94,6 +104,14 @@ class TestCreatePost:
         )
         assert response_postdata.json()[0]['title'] == self.POSTDATA['title']
         assert response_postdata.json()[0]['body'] == self.POSTDATA['body']
+
+    def test_type_of_post_data(self):
+        response_post_data = requests.get(
+            f'{self.URL_CREATE_USER}/{self.return_user_id()}/posts',
+            headers=self.HEADERS
+        )
+        assert isinstance(response_post_data.json()[0]['title'], str)
+        assert isinstance(response_post_data.json()[0]['body'], str)
 
     def test_delete_user(self):
         response_delete = requests.delete(
