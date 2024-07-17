@@ -57,7 +57,7 @@ class TestCreatePost:
 
     def test_response_status_code_for_request_get_user(self):
         response_code = requests.get(
-            url=self.URL_CREATE_USER,
+            url=f'{self.URL_CREATE_USER}/{self.return_user_id()}',
             headers=self.HEADERS
         )
         assert response_code.status_code == 200
